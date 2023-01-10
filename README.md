@@ -37,19 +37,23 @@ And below is an example of what the data in a log file, 2018-11-12-events.json, 
 
 The startup, Sparkify wants to extract datasets from udacity bucket and store it their own bucket using emr cluster. They need to build ETL pipeline to extract data and transform it into a star schema. Lastly, they store the data schema into parquet file form.
 
-## EXPLANATION OF THE FILES
+## Descriptions of each template
 
-#### dl.cfg
-It contains access key and secret access key of IAM user
+### `dl.cfg`
+Informations for accessing AWS S3(Datalake)
 
-#### etl.py
-It executes all the process we need
-
+### `etl.py`
+Execute ETL pipeline and Data modeling with Apache Spark
+  1. Create spark session
+  2. Extract datasets from datalake
+  3. Execute ETL pipline and model the data
+  
 ## STEPS FOR PROJECT
-1. create iam user with access role
-2. fill dl.cfg file based on the iam user's information
-3. write paths of datasets and create each table
-4. get output path for storing parquet files
+1. Create iam user with access role
+2. Complete `dl.cfg` file based on the iam user's information
+3. Write the path of datasets
+4. Make pipelines for each table and run `etl.py`
+5. Get output path for storing parquet files
 
 ## DATABASE SCHEMA DESIGN
 
@@ -57,6 +61,6 @@ It executes all the process we need
   <img
     src="erd.png"
     width="700"
-    height="1400"
+    height="700"
   />
 </center>
